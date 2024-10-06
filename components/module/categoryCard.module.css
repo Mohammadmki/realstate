@@ -1,0 +1,58 @@
+.card {
+    box-shadow: #304ffe4a 0px 4px 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 10px;
+    transition: all ease-in 0.1s;
+    margin: 10px 0;
+    min-height: 200px;
+    min-width: 130px;
+  }
+  
+  .card:hover {
+    transform: rotate(-5deg);
+  }
+  
+  .card img {
+    border-radius: 10px;
+    width: 240px;
+    height: 190px;
+  }
+  
+  .card p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #304ffe;
+    text-align: center;
+    margin: 10px 0 5px;
+  }
+  @media screen and (min-width:1070px) {
+    .card img {
+      width: 290px;
+      height: 220px;
+    }
+    .card {
+      padding: 15px;
+      margin: 15px 0px;
+    }
+    .card p {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+  }
+  @media screen and (max-width:600px){
+     .card {
+      padding: 7px 2px;
+      margin: 5px 2px;
+      min-height: 90px;
+     }
+     .card img {
+      width: 155px;
+      height: 120px;
+     }
+     .card p {
+      margin: 2px 0px 2px;
+      font-size: 1rem;
+     }
+  }

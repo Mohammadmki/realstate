@@ -1,0 +1,97 @@
+.container {
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+ 
+  height: fit-content;
+}
+
+.container p {
+  font-size: 0.9rem;
+  margin-bottom: 0px;
+}
+
+.container button {
+  border: none;
+  background-color: #304ffe;
+  color: #fff;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  transition: all ease-in 0.1s;
+  cursor: pointer;
+  padding: 4px 6px;
+  display: flex;
+  margin-top: 7px;
+}
+
+.container button:hover {
+  transform: scale(1.05);
+}
+
+.container button svg {
+  margin-right: 5px;
+  font-size: 1.2rem;
+}
+
+.card {
+  display: flex;
+  margin: 10px 0;
+}
+.card input {
+  width: 300px;
+  border: 1px #304ffe dashed;
+  color: grey;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  height: 30px;
+  margin-left: 10px;
+  font-size: 0.83rem;
+}
+
+.card input:focus {
+  border: 1px #304ffe solid;
+  outline: none;
+}
+
+.card button {
+  margin: 0;
+  color: #db0505;
+  background-color: #fff;
+  border: 1px #db0505 solid;
+  display: flex;
+  align-items: center;
+  line-height: 10px;
+}
+@media screen and (min-width:1070px) {
+  .container p {
+    font-size: 1.1rem;
+  }
+  .container button{
+    font-size: 1rem;
+  }
+  .card input {
+    width: 400px;
+    height: 35px;
+  }
+}
+@media screen and (max-width:800px){
+ .card {
+  margin: 7px 0px;
+ }
+  .card input{
+    width: 170px;
+    height: 20px;
+  }
+  .card button{
+    font-size: 0.7rem;
+    display: flex;
+    align-items: flex-end;
+  }
+  .card button svg{
+    font-size: 0.8rem;
+    margin-right: 3px;
+  }
+  .container {
+    margin-bottom: 10px;
+  }
+}

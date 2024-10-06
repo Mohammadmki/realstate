@@ -1,0 +1,51 @@
+.share{
+    box-shadow: #304ffe4a 0px 3px 15px;;
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 4px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+
+.share p svg{
+    color: #304ffe;
+    margin-left: 4px;
+
+}
+.bookmark svg {
+    animation-name: mark;
+    animation-timing-function: ease;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards; 
+       width: fit-content
+
+}
+@keyframes mark {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+.share p{
+    color: rgb(139, 139, 139);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.share p:hover {
+    color: #304ffe;
+}
+@media screen and ( min-width:1070px){
+    .share p svg{
+        font-size: 1.1rem;
+    }
+    .share p {
+        font-size: 0.9rem;
+    }
+}

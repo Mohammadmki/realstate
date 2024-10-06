@@ -1,0 +1,48 @@
+.container {
+    padding-bottom: 15px;
+    border-bottom: 1px solid silver;
+}
+.container h3 {
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    width: 100%;
+    color: #304ffe;
+    background-color: #d9deff;
+    padding: 3px 6px;
+    border-radius: 6px;
+}
+.container button {
+    width: 100%;
+    background-color: #304ffe;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.container button:hover{
+    transform: scale(1.01);
+    border-radius: 5px;
+}
+.container button:disabled{
+    opacity: 0.6;
+}
+@media screen and (max-width:600px) {
+    .container h3 {
+        font-size: 0.9rem;
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+    .container label {
+        font-size: 0.8rem;
+    }
+
+}
+@media screen and (min-width:1070px){
+    .container button{
+        font-size: 1.1rem;
+    }
+}

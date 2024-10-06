@@ -1,0 +1,61 @@
+.container {
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container p {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+}
+
+.main div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #304ffe18;
+  color: #304ffe;
+  margin-left: 30px;
+  width: 70px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main label {
+  font-size: 0.8rem;
+}
+@media screen and ( min-width:1070px){
+  .container p {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .main label{
+    font-size: 1rem;
+    font-weight:500 ;
+  }
+}
+@media screen and ( max-width:600px){
+ .container {
+  margin-bottom: 20px;
+ }
+  .main label{
+    font-size: 0.7rem;
+  }
+  .main div {
+    padding: 1px 1px;
+    margin-left: 10px;
+    width: 50px;
+  }
+  .main div input{
+    width: 10px;
+  }
+}
+
+  
+ 

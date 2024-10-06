@@ -1,0 +1,23 @@
+.container{
+    display: grid;
+    grid-template-columns: 0.6fr 2fr;
+    gap: 20px;
+    text-align: right;
+}
+.profiles{
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ width: 100%;
+
+}
+.sidebar{
+    height: fit-content;
+   width: 130px;
+}
+
+@media screen and ( max-width:600px) {
+    .profiles {
+        gap: 10px;
+    }
+}

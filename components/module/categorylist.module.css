@@ -1,0 +1,103 @@
+
+
+.categoryCard p span{
+    color: #304ffe;
+    font-weight: 400;
+    margin: 0px 2px;
+}
+.categoryCard p:last-of-type {
+    color: gray;
+    font-weight: 350;
+}
+.categoryCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #304ffe;
+    border: #304ffe 1px dashed;
+    border-radius: 7px;
+    margin: 15px 0px;
+    padding: 1px 6px;
+    overflow-y: hidden;
+    height: 30px;
+    transition: all 0.5s ease;
+    padding-bottom: 5px;
+}
+.categoryCard:hover {
+    height: 64px;
+}
+.categoryCard div:last-of-type{
+  
+    width: 100%;
+    gap: 25px;
+    padding: 0px 4px;
+}
+.categoryCard div:first-of-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.categoryCard button {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid red;
+    color: red;
+    padding: 2px;
+    width: 90%;
+    margin: auto;
+   
+}
+.categoryCard button:disabled {
+    opacity: 0.6;
+}
+@media screen and ( min-width:1070px){
+    .categoryCard p {
+      font-size: 1rem;
+      
+    }
+    .categoryCard p span {
+        font-weight: 600;
+    }
+    .categoryCard p:first-of-type {
+        font-size: 1.1rem;
+        font-weight: 500;
+        
+    }
+    .categoryCard button{
+        font-size: 1.1rem;
+    }
+    .categoryCard:hover{
+        height: 74px;
+    }
+}
+@media screen and ( max-width:600px){
+    .categoryCard p span{
+     font-size: 0.7rem;
+     font-weight: 500;
+    }
+    .categoryCard p {
+        font-size: 0.7rem;
+    }
+    .categoryCard button{
+        font-size: 0.7rem;
+          padding: 1px;
+    }
+    .categoryCard button svg {
+        font-size: 0.8rem;
+    }
+    .categoryCard {
+        height: 50px;
+        border-radius: 4px;
+    }
+    .categoryCard:hover{
+        height: 50px;
+    }
+
+}

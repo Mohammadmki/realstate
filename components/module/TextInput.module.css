@@ -1,0 +1,61 @@
+.container input,
+.container textarea {
+  margin-bottom: 40px;
+  width: 300px;
+  border: 1px #304ffe dashed;
+  color: grey;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 0.83rem;
+  height:25px;
+
+}
+
+.container input:focus,
+.container textarea:focus {
+  border: 1px #304ffe solid;
+  outline: none;
+}
+
+.container textarea {
+  min-height: 100px;
+}
+
+.container p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+.container p span {
+  color: rgb(143, 143, 143);
+  font-size: 0.85rem;
+}
+@media screen and (max-width:600px){
+  .container input,
+.container textarea {
+  margin-bottom: 15px;
+  height: 15px;
+  width: 200px;
+}
+.container p {
+  font-size: 0.7rem;
+  margin-bottom: 0px;
+}
+
+}
+@media screen and (min-width:1070px){
+  .container input,
+.container textarea {
+  width: 400px;
+  border: 1.5px #304ffe dashed;
+  height: 32px;
+}
+.container textarea {
+  min-height: 200px;
+}
+.container p {
+  font-size: 1.2rem;
+}
+.container p span {
+font-size: 1.1rem;
+}
+}

@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+}
+.card {
+    border: 1px dashed #304ffe;
+        margin-bottom: 20px;
+        border-radius: 11px;
+        padding-bottom: 5px;
+    }
+.btn{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr ;
+    column-gap: 5px;
+    padding: 0px 12px;
+    margin-top: 5px;
+}
+.btn button:first-of-type{
+    color: #db0505;
+    border: 1px solid #db0505;
+    border-radius: 4px;
+    padding: 2px 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+.btn button:last-of-type{
+    color: #304ffe;
+    border: 1px solid #304ffe;
+    border-radius: 4px;
+    padding: 2px 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+.btn svg{
+    font-size: 1rem;
+    margin-left: 2px;
+}
+.btn button:disabled {
+    opacity: 0.6;
+}
+@media screen and ( max-width:600px){
+   
+}

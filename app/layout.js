@@ -1,7 +1,10 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import { yekan } from "@/utils/Fonts";
+import "./globals.css";
+import Layout from "@/components/layout/Layout";
+import NextAuthProvider from "./providers/NextAuthProvider";
+
+
 
 export const metadata = {
   title: "Create Next App",
@@ -10,8 +13,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html dir="rtl"  lang="fa">
+      <body dir="rtl" className={yekan.className}>
+       <NextAuthProvider>
+        <Layout>
+        {children}
+        </Layout>
+       </NextAuthProvider>
+        </body>
+         
     </html>
   );
 }

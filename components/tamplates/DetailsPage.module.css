@@ -1,0 +1,168 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.container h3 {
+    color: #304ffe;
+    font-weight: 500;
+}
+.desc {
+    margin-left: 30px;
+    width: 100%;
+}
+.desc p:first-of-type{
+    display: flex;
+    flex-direction: row-reverse;
+    width: fit-content;
+    margin-top: 11px;
+    color: rgb(139, 139, 139);
+    font-size: 0.87rem;
+    margin-bottom: 28px;
+}
+.desc p:last-of-type{
+    font-size: 0.88rem;
+    text-wrap: wrap;
+    width: 100%;
+    border-top: solid silver 1px;
+    padding-top: 10px;
+    margin-bottom: 28px;
+}
+.desc ul {
+    width: 100%;
+    margin-top: 5px;
+    border-top: solid 1px silver;
+    padding-top: 10px;
+    margin-bottom: 28px;
+    
+}
+.desc li::before {
+    content: "• ";
+    color: #304ffe;
+}
+.desc span {
+    font-size: 0.9rem;
+    color: red;
+
+
+
+}
+.desc h3:last-of-type{
+  border-bottom: 1px solid silver;  
+  margin-bottom: 8px;
+}
+.reatstate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: #304ffe4a 0px 3px 15px;
+    padding: 10px 0px;
+    border-radius: 8px;
+    min-width: 120px
+;
+}
+.reatstate svg {
+      color: #304ffe;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+
+}
+
+.reatstate p {
+    color:rgb(122, 122, 122); 
+    font-size: 0.87rem;
+    margin-top: 20px;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    align-items: center;
+    
+}
+.reatstate p svg{
+    font-size: 1rem;
+    color:rgb(122, 122, 122) ;
+    margin-right: 2px;
+    font-weight: 800;
+    margin-bottom: 0px;
+}
+.info{
+    margin-top: 25px;
+    box-shadow:#304ffe4a 0px 3px 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 8px;
+}
+.info h5 {
+    color:rgb(122, 122, 122);
+    font-weight: 400;
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+.info h5 svg{
+    color: #304ffe;
+    margin-left: 4px;
+    font-size: 1.2rem;
+}
+.info span {
+    color: rgb(122, 122, 122);
+    font-size: 0.8rem;
+}
+.info p {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    margin-top: 8px;
+      color: rgb(122, 122, 122);
+}
+.info p svg {
+    color: #304ffe;
+    margin-left: 3px;
+}
+@media screen and ( min-width:1070px) {
+  .container h3 {
+    font-size: 1.5rem;
+  }
+  .desc p:first-of-type {
+    font-size: 1.1rem;
+    
+  }
+  .desc p:last-of-type {
+    font-size: 1.1rem;
+  }
+  .desc li {
+    font-size: 1.2rem;
+  }
+  .desc span{
+    font-size: 0.9rem;
+    color: red;
+  }
+  .reatstate {
+    min-width: 180px;
+  }
+  .reatstate svg {
+    font-size: 3.6rem;
+  }
+  .reatstate h4 {
+    font-size: 1.3rem;
+    font-weight:600;
+  }
+  .reatstate p {
+    font-size: 1rem;
+  }
+  .info h5 {
+      font-size: 1.2rem;
+  }
+  .info h5 svg {
+    font-size: 1.5rem;
+  }
+  .info span {
+    font-size: 1rem;
+  }
+  .info p {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,57 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 8px;
+      width: 130px;
+    box-shadow: #304ffe4a 0px 3px 15px;
+    margin-top: 11px;
+    border-radius: 5px;
+}
+.container p {
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row-reverse;
+    width: fit-content;
+}
+.container p svg {
+    color: #304ffe;
+}
+
+.container ul {
+    list-style: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: fit-content;
+    margin: 5px 0px;
+    width: 100%;
+   
+}
+.container li {
+    margin-top: 6px;
+    cursor: pointer;
+    margin-right: 4px;
+    transition: all .3s ease;
+}
+.onactive  {
+
+    color: rgb(146, 146, 146);
+}
+.onactive:hover{
+    color: black;
+}
+.active{
+    color: black;
+   
+}
+@media screen and ( min-width:1070px) {
+    .container {
+        width: 180px;
+    }
+    .container p {
+        font-size: 1.2rem;
+    }
+    .container ul {
+        font-size: 1rem;
+    }
+}

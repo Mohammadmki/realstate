@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  border: 2px solid #304ffe58;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.main {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
+.main button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+  background-color: #fff;
+  cursor: pointer;
+  height: 35px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  border: 1px solid rgb(0, 168, 0);
+  color: rgb(0, 168, 0);
+}
+
+.main svg {
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.main button:last-child {
+  border: 1px solid #db0505;
+  color: #db0505;
+}
+.main button:disabled{
+ opacity: 0.4;
+}
+.success {
+ position: absolute;
+ top: 0px;
+ left: 0px;
+ margin: 10px 15px;
+ color:rgb(0, 168, 0) ;
+}
+.pending {
+  position: absolute;
+ top: 0px;
+ left: 0px;
+ margin: 10px 15px;
+ color: rgb(255, 145, 0);
+}
+@media screen and ( max-width:600px){
+ .container{
+   flex-direction: column;
+   border: none;
+ }
+ .main button {
+  font-size: 0.76rem;
+  height: 30px;
+ }
+}
+@media screen and ( min-width:1070px){
+  .success{
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .pending{
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .main button{
+    font-size: 1.1rem;
+  }
+}

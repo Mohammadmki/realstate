@@ -1,0 +1,104 @@
+.sidebar {
+    box-shadow: #304ffe4a 0px 3px 15px;;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 10px 8px;
+    width:fit-content;
+    border-radius: 5px;
+    height: fit-content;
+}
+.container{
+    display: grid;
+    grid-template-columns: auto 1fr ;
+    column-gap: 30px;
+}
+.sidebar a {
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 500;
+    width: fit-content;
+    margin: 5px 0px;
+    
+}
+.sidebar svg{
+    color: #304ffe;
+    justify-self: center;
+    align-self: center;
+ font-size: 2.2rem;
+ 
+}
+.sidebar p {
+    color: rgb(117, 117, 117);
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-top: 7px;
+    border-bottom: 1px silver solid;
+    width: 100%;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.sidebar button {
+    color: rgb(233, 0, 0);
+    font-size: 0.8rem;
+    font-weight: 500;
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.sidebar button svg{
+    font-size: 0.75rem;
+    color:rgb(233, 0, 0) ;
+}
+.sidebar span{
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 6px;
+}
+@media screen and (max-width:600px){
+    .sidebar {
+        padding: 5px;
+    }
+    .container {
+        column-gap: 14px;
+    }
+    .sidebar a {
+        font-size: 0.7rem;
+    }
+    .sidebar svg {
+        font-size: 1.8rem;
+    }
+    .sidebar p {
+        font-size: 0.6rem;
+    }
+    .sidebar span {
+        font-size: 0.7rem;
+    }
+}
+@media screen and (min-width:1070px) {
+    .container {
+        column-gap: 30px;
+    }
+    .sidebar svg {
+        font-size: 2.9rem;
+    }
+    .sidebar p {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .sidebar span{
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    .sidebar a {
+        font-size: 1.1rem;
+    }
+    .sidebar button {
+        font-size: 1.1rem;
+    }
+    .sidebar button svg {
+        font-size: 1.2rem;
+        margin-left: 5px;
+    }
+
+}

@@ -1,0 +1,15 @@
+.btn  {
+    color: rgb(233, 0, 0);
+    font-size: 0.65rem;
+    font-weight: 500;
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.btn button svg{
+    font-size: 0.7rem;
+    color:rgb(233, 0, 0) ;
+
+}

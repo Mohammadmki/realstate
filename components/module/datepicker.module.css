@@ -1,0 +1,13 @@
+@media screen and ( min-width:1070px){
+    .container span {
+        font-size: 1rem;
+    }
+    .container p {
+        font-size: 1.2rem;
+    }
+    .container input{
+        width: 200px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
