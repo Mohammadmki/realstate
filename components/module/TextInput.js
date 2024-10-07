@@ -10,6 +10,15 @@ function TextInput({
   setData,
   textarea = false,
 }) {
+  const sp = (number) => {
+    if (!number) return '';
+    const separatedNumber = number
+      .toString()
+      .match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
+    const joinedNumber = separatedNumber ? separatedNumber.join(',') : '';
+    return joinedNumber; 
+
+  };
   const changeHandler = (e) => {
     const { name, value } = e.target;
 
@@ -22,15 +31,7 @@ function TextInput({
     setData({ ...Data, [name]: p2e(value) }); 
   };
 
-  const sp = (number) => {
-    if (!number) return '';
-    const separatedNumber = number
-      .toString()
-      .match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
-    const joinedNumber = separatedNumber ? separatedNumber.join(',') : '';
-    return joinedNumber; 
 
-  };
   return (
     <div className={styles.container}>
       <p>{title}</p>

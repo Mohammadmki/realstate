@@ -30,8 +30,8 @@ export default function DetailsPage({data,user}) {
               <h3>امکانات</h3>
               {data?.amenities.length?(
               <ul>
-                {data?.amenities.map((i,index)=>(
-                    <li key={index} >{i}</li>
+                {data?.amenities.map((amenities,index)=>(
+                    <li key={index} >{amenities}</li>
                 ))}
               </ul>       
               ):<span>هیچ موردی ذکر نشده</span>}

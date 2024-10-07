@@ -22,7 +22,6 @@ export default function Sharedbtn({id,saves}) {
         if(!saves) return
 
         const isSaved= saves.filter((i)=>i._id==id)
-       console.log(isSaved)
         if(isSaved.length){
             setThereis(true)
         }else{

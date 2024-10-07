@@ -12,8 +12,9 @@ export default async function Add() {
   
     const session= await getServerSession(authOptions)  
      if(!session) redirect("/signIn")
-        connectDB()
+       await connectDB()
     const categorie= await Category.find()
+    console.log(categorie)
     return (
        <Addpost categorie={JSON.parse(JSON.stringify(categorie))} />
        

@@ -15,7 +15,7 @@ import { orgnumber } from "@/utils/replaceNumber";
 
 export default function Addpost({data,categorie}) {
   
-
+ 
 
   const [loading,setLoading]=useState(false)
     const [profileData, setProfileData] = useState({

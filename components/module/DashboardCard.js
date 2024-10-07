@@ -12,7 +12,7 @@ import { useState } from "react";
 export default function DashboardCard({data}) {
 
  const [Loading,setLoading]=useState(false)
- console.log(data.published?"lkj":"ss")
+ 
   const router=useRouter()
 
    const editHandler=()=>{
