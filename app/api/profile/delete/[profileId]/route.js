@@ -18,9 +18,10 @@ export async function DELETE(req,context) {
         
                 const profile= await Profile.findOne({_id:id})
 
-                if(!user._id.equals(profile.userId)){
+                if(!user._id.equals(profile.userId)||user.role!=="ADMIN"){
                     return NextResponse.json({error:"دسترسی شما به اگهی محدود شده است"},{status:403})
                 } 
+                
                await profile.deleteOne({_id:id})
 
                 return NextResponse.json({message:"اگهی حذف شد"},{status:200})

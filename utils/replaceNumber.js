@@ -11,5 +11,9 @@ const sp = (number) => {
   const joinedNumber = seperatedNumber.join(",");
   return e2p(joinedNumber);
 };
+const orgnumber=(number)=>{
+  const originalPrice = number.replace(/,/g, ''); 
+  return originalPrice
+}
 
-export { e2p, p2e, sp };
+export { e2p, p2e, sp,orgnumber };

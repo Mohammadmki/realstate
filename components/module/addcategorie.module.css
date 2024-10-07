@@ -30,6 +30,31 @@
 .container button:disabled{
     opacity: 0.6;
 }
+.image{
+    display: flex;
+    flex-direction: column;
+}
+.image input{
+    display: none;
+}
+
+.image svg{
+    color: #304ffe;
+    border: #304ffe 1px dashed;
+    padding: 9px 11px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 66px;
+    height: 56px;
+}
+.image img {
+    width: 68px;
+    height: 58px;
+    border-radius: 8px;
+     object-fit: cover;
+     box-shadow: 0 3px 15px #304ffe4a;;
+}
 @media screen and (max-width:600px) {
     .container h3 {
         font-size: 0.9rem;
@@ -39,10 +64,32 @@
     .container label {
         font-size: 0.8rem;
     }
-
+    .image p{
+        font-size: 0.8rem;
+    }
+    .image svg {
+        width: 60px;
+        height: 50px;
+    }
+    .image img {
+        width: 60px;
+        height: 50px;
+    }
 }
 @media screen and (min-width:1070px){
     .container button{
         font-size: 1.1rem;
+    }
+    .image svg {
+        width: 100px;
+        height: 80px;
+    }
+    .image p {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+    .image img {
+        width: 100px;
+        height: 80px;
     }
 }

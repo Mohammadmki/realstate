@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import CustomDatePicker from "../module/DatePicker";
 import RadioList from "../module/RadioList";
 import { ThreeDots } from "react-loader-spinner";
+import { orgnumber } from "@/utils/replaceNumber";
 
 
 
@@ -30,14 +31,16 @@ export default function Addpost({data,categorie}) {
         amenities: [],
       });
 
-      console.log(profileData)
-
+      
+         
      useEffect(()=>{
       if(data)setProfileData(data)
      },[])
 
        const abbHandler= async (e)=>{
         
+        setProfileData({...profileData,["price"]:orgnumber(profileData.price)})
+
         setLoading(true)
            const res=await fetch("/api/profile",{
              method: "POST" ,

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import { ThreeDots } from "react-loader-spinner";
+import { emailRegex } from "@/utils/Valid";
  
 
 export default function SignInpage() {
@@ -14,6 +15,7 @@ export default function SignInpage() {
     const [password,setPassword]=useState("")
     const [repassword,setrepassword]=useState("")
     const [Loading,setLoading]=useState(false)
+    const [Valid,setValid]=useState(true)
 
     const pass=useRef(null)
     const Repass=useRef(null)
@@ -22,9 +24,16 @@ export default function SignInpage() {
 
 
    
-
+    
     const signinHandler= async (e)=>{
       e.preventDefault()
+      
+       setValid(emailRegex(email))
+
+       if(!Valid){
+        return
+       }else{
+
      setLoading(false)
       if(password!==repassword){
         Repass.current.ariaDisabled="false"
@@ -51,7 +60,7 @@ export default function SignInpage() {
         toast.success("ورد به حساب با موفقیت انجام شد")
         router.push("/dashboard")
      }
-     
+    }
     }
     return (
         <div className={styles.container} >
@@ -67,6 +76,7 @@ export default function SignInpage() {
            <div className={styles.formitem} >
             <input value={email} onChange={(e)=>setEmail(e.target.value)} type="text" id="email" autoComplete="off"  />
             <label htmlFor="email" >ایمیل</label>
+             <p aria-disabled={Valid} >لطفا ایمیل معتبر وارد کنید</p>
             </div>
             <div className={styles.formitem} >
             <input value={password} onChange={(e)=>setPassword(e.target.value)} type="text" id="password"  autoComplete="off"  />

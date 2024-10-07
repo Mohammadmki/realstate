@@ -1,5 +1,5 @@
 
-import { p2e, sp } from "../../utils/replaceNumber";
+import { p2e, } from "../../utils/replaceNumber";
 import styles from "./TextInput.module.css";
 
 
@@ -12,15 +12,28 @@ function TextInput({
 }) {
   const changeHandler = (e) => {
     const { name, value } = e.target;
-    setData({ ...Data, [name]: p2e(value) });
+
+    if (name === "price") {
+      const rawValue = value.replace(/,/g, ''); 
+      setData({ ...Data, [name]: sp(rawValue) });
+      return;
+    }
+
+    setData({ ...Data, [name]: p2e(value) }); 
   };
 
+  const sp = (number) => {
+    if (!number) return '';
+    const separatedNumber = number
+      .toString()
+      .match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
+    const joinedNumber = separatedNumber ? separatedNumber.join(',') : '';
+    return joinedNumber; 
+
+  };
   return (
     <div className={styles.container}>
-      <p>{title}
-        {name=="realState"&& <span>(اختیاری)</span> 
-      }
-      </p>
+      <p>{title}</p>
       {textarea ? (
         <textarea
           type="text"

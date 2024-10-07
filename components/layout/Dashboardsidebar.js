@@ -4,10 +4,15 @@ import { CgProfile } from "react-icons/cg";
 import styles from "./dashboardstyles.module.css"
 
 import Logoutbtn from "../module/Logoutbtn";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 
 export default async function Dashboardsidebar({children,role,email}) {
 
+    const session= await getServerSession(authOptions)
+
+    if(!session) redirect('/signIn')
     return (
         <div className={styles.container} >
            <div className={styles.sidebar} >

@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 
       const publishHandler=async()=>{
         setLoading(true)
-        const res= await fetch(`/api/profile/publish/${data._id}`,{method:"PATCH"})
+        const res= await fetch(`/api/profile/publish/${data?._id}`,{method:"PATCH"})
          
         const resulat=await res.json()
          setLoading(true)
@@ -28,6 +28,16 @@ import { useRouter } from "next/navigation";
             toast.success(resulat.message)
             Router.refresh()
       }
+      const deleteHandler=async()=>{
+        const res =await fetch(`/api/profile/delete/${data?._id}`,{
+          method:"DELETE",
+        })
+        const resualt=res.json()
+        if(resualt.error) return toast.error(resualt.error)
+          toast.success(resualt.message)
+          Router.refresh()
+    }
+      
       
       
         return (
@@ -39,10 +49,11 @@ import { useRouter } from "next/navigation";
               <span>{sp(data.price)}</span>
             </div>
             <button disabled={loading} onClick={publishHandler} >انتشار</button>
+            <button disabled={loading} onClick={deleteHandler} >حذف</button>
             <Toaster toastOptions={{
               duration:3000
             }} />
           </div>
-        );
-      }
+        ) };
       
+     

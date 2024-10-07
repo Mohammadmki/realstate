@@ -7,12 +7,14 @@ import { useRouter } from "next/navigation";
 import {signIn} from "next-auth/react"
 import { ThreeDots } from "react-loader-spinner";
 import Link from "next/link";
+import { emailRegex } from "@/utils/Valid";
 
 export default function SignUpForm() {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const [repassword,setrepassword]=useState("")
   const [Loading,setLoading]=useState(false)
+  const [Valid,setValid]=useState(true)
 
   const router=useRouter()
 
@@ -22,6 +24,13 @@ export default function SignUpForm() {
 
   const signUpHandler= async (e)=>{
     e.preventDefault()
+
+    setValid(emailRegex(email))
+
+    if(!Valid){
+     return
+    }
+
     if(password.length<8){
       pass.current.ariaDisabled="false"
       return
@@ -70,6 +79,7 @@ export default function SignUpForm() {
           <div className={styles.formitem} >
             <input value={email} onChange={(e)=>setEmail(e.target.value)} type="text" id="email" autoComplete="off"  />
             <label htmlFor="email" >ایمیل</label>
+            <p aria-disabled={Valid} >لطفا ایمیل معتبر وارد کنید</p>
          </div>
          <div className={styles.formitem} >
             <input value={password} onChange={(e)=>setPassword(e.target.value)} type="text" id="password"  autoComplete="off"  />

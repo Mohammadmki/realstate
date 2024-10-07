@@ -30,6 +30,9 @@
 .main label {
   font-size: 0.8rem;
 }
+.main input {
+  
+}
 @media screen and ( min-width:1070px){
   .container p {
     font-size: 1.2rem;

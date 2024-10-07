@@ -44,6 +44,10 @@
     margin-top: 20px;
     transition: all ease-in 0.1s;
   }
+  .container button:last-of-type {
+    background-color: red;
+    margin-right: 8px;
+  }
   
   .container button:hover {
     transform: scale(1.1);
