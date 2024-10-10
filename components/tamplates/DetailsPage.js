@@ -36,10 +36,10 @@ export default function DetailsPage({data,user}) {
               </ul>       
               ):<span>هیچ موردی ذکر نشده</span>}
               <h3>قوانین</h3>  
-              {data?.rules.length<0?(
+              {data?.rules.length?(
                     <ul>
-                        {data.rules.map((i)=>(
-                            <li>{i}</li>
+                        {data.rules.map((rules,index)=>(
+                            <li key={index} >{rules}</li>
                         ))}
                     </ul>
               ):<span>هیچ موردی ذکر نشده</span>}

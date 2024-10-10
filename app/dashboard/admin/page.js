@@ -7,6 +7,12 @@ import connectDB from "@/utils/connect";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/dist/server/api-utils";
 
+export const metadata = {
+    title: " پنل ادمین پروژه املاک",
+    description: "سامانه خرید و فروش املاک",
+  };
+
+
 export default async function Admin() {
      
     await connectDB()

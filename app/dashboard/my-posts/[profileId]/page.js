@@ -12,6 +12,11 @@ export default async function Edit({params:{profileId}}) {
 
     if(!profile) return <h3>مشکلی بوجود آمده لطفا دوباره امتحان کنید</h3>
     return (
-       <Addpost categorie={categorie} data={JSON.parse(JSON.stringify(profile))} />
+       <Addpost categorie={JSON.parse(JSON.stringify(categorie))} data={JSON.parse(JSON.stringify(profile))} />
     );
+}
+export const generateMetadata= async ({params:{profileId}})=>{
+  await connectDB()
+  const profile= await Profile.findOne({_id:profileId})
+  return { title:profile.title, description:profile.description }
 }

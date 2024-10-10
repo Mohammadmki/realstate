@@ -4,9 +4,13 @@ export default function Myprofiles({profiles}) {
     
     return (
       <div>
-        {profiles.map((i)=>(
+       {
+        profiles.length?<>
+         {profiles.map((i)=>(
             <DashboardCard key={i._id} data={JSON.parse(JSON.stringify(i))} />
         ))}
+        </>:<h3 className="error" >شما اگهیی انتشار نکرده اید</h3>
+       }
       </div>
     );
 }

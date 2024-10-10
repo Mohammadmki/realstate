@@ -29,10 +29,10 @@ import { useRouter } from "next/navigation";
             Router.refresh()
       }
       const deleteHandler=async()=>{
-        const res =await fetch(`/api/profile/delete/${data?._id}`,{
+        const res =await fetch(`/api/profile/delete/${data._id}`,{
           method:"DELETE",
         })
-        const resualt=res.json()
+        const resualt= await res.json()
         if(resualt.error) return toast.error(resualt.error)
           toast.success(resualt.message)
           Router.refresh()

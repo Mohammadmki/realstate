@@ -15,7 +15,7 @@
 }
 
 .pages a {
-    margin: 0px 4px;
+    margin: 0px 8px;
  
     color: white;
     background: none;
@@ -98,7 +98,7 @@
     .pages a {
         font-size: 1.3rem;
         font-weight: 500;
-        margin: 0px 8px;
+        margin: 0px 12px;
     }
     .login a{
         font-size: 1.2rem;

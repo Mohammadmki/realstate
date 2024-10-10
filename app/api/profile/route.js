@@ -1,6 +1,7 @@
 import Profile from "@/models/Profile"
 import User from "@/models/User"
 import connectDB from "@/utils/connect"
+import { orgnumber } from "@/utils/replaceNumber"
 import { Types } from "mongoose"
 import { getServerSession } from "next-auth"
 import { NextResponse } from "next/server"
@@ -30,14 +31,18 @@ export async function POST (req) {
             ,category
             ,rules
             ,amenities}=body
+          
+            const RawPrice=orgnumber(price)
+
+
             const session= await getServerSession(req)
             if(!session) return NextResponse.json({error:"اول وارد حساب کاربری خود شوید"},{status:401})
-               
+              
                 const user=await User.findOne({email:session.user.email})
              
                 if(!user) return NextResponse.json({error:"حساب کار بری یافت نشد لطفا ثبت نام کنید" },{status:404})
 
-                if(!title||!description||!location||!phone||!price||!constructionDate||!category){
+                if(!title||!description||!location||!phone||!RawPrice||!constructionDate||!category){
                     return NextResponse.json({error:"لطفا مقادیر فرم را کامل کنید"},{status:400})
                 }
                 const newprofile= await Profile.create({
@@ -45,7 +50,7 @@ export async function POST (req) {
                     ,description
                     ,location
                     ,phone
-                    ,price:+price
+                    ,price:+RawPrice
                     ,realState
                     ,constructionDate
                     ,category

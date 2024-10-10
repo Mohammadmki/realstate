@@ -31,13 +31,13 @@
 .desc ul {
     width: 100%;
     margin-top: 5px;
-    border-top: solid 1px silver;
     padding-top: 10px;
     margin-bottom: 28px;
+    list-style: none;
     
 }
 .desc li::before {
-    content: "• ";
+    content: "•";
     color: #304ffe;
 }
 .desc span {

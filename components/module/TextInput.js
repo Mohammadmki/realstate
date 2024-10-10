@@ -19,10 +19,12 @@ function TextInput({
     return joinedNumber; 
 
   };
+  
   const changeHandler = (e) => {
     const { name, value } = e.target;
 
     if (name === "price") {
+  
       const rawValue = value.replace(/,/g, ''); 
       setData({ ...Data, [name]: sp(rawValue) });
       return;

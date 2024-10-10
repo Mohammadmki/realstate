@@ -46,7 +46,7 @@ export default function DashboardCard({data}) {
             منتشر شد
           </p>
           :
-          <p className={styles.pending} > در صف انشار ... </p>
+          <p className={styles.pending} > در صف انتشار ... </p>
           }
 
           <button onClick={editHandler} >
