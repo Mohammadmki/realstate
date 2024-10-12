@@ -4,12 +4,9 @@ import DeleteBtn from "./DeleteBtn";
 
 export default async function CategoryList() {
    
-    const res= await fetch("http://localhost:3000/api/categories",{cache:"no-store"})
+    const res= await fetch("https://realstate-nine-opal.vercel.app/api/categories",{next:{revalidate:24*60*60}})
     const data=await res.json()
     
-    const showHandler=(e)=>{
-        console.log(e)
-    }
 
     if(!data.data.length) return <h3 className="error" >هیچ دسته بندیی وجود ندارد</h3>
     return (

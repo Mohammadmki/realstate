@@ -6,9 +6,9 @@ export default async function page(ctx) {
      
         await connectDB()
          
-        const res= await fetch("http://localhost:3000/api/profile",{cache:"no-store"})
+        const res= await fetch("https://realstate-nine-opal.vercel.app/api/profile",{cache:"no-store"})
         const data=await res.json()
-        const categoryres= await fetch("http://localhost:3000/api/categories",{cache:"no-store"})
+        const categoryres= await fetch("https://realstate-nine-opal.vercel.app/api/categories",{next:{revalidate:24*60*60}})
        const Categorie=await categoryres.json()
     if(!data){
         return <h3>مشکلی پیش آمده</h3>
