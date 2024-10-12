@@ -80,6 +80,7 @@
     transition: all .3s ease;
     height: 30px;
     margin-top: 2px;
+    color: white;
 }
 .form button:hover {
     transform: scale(1.05);

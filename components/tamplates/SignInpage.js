@@ -92,7 +92,8 @@ export default function SignInpage() {
            </form>
            <p>حساب کار بری ندارید؟
         <Link href={"/signUp"} >ثبت نام</Link>
-      </p>
+       </p>
+       <p>اکانت ادمین:<span style={{margin:"2px", color:"#304ffe"}}>mohammad@gmail.com</span></p>
         </div>
     );
 }
