@@ -1,8 +1,9 @@
 "use client"
 import { cities } from "@/constans/strings";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import {Suspense, useEffect, useRef, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
+
 
 export default function Showcity() {
      const [City,setCity]=useState("")
@@ -42,6 +43,7 @@ export default function Showcity() {
      
 
     return (
+      <Suspense fallback={<div>Loading</div>}>
         <div>
         <button ref={btn} onClick={showHandler} ><FaLocationDot />شهر</button>
         <ul ref={list} aria-disabled="true" >
@@ -50,5 +52,6 @@ export default function Showcity() {
           ))}
         </ul>
      </div>
+     </Suspense>
     );
 }

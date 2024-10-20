@@ -7,7 +7,7 @@ import { FaFilter } from "react-icons/fa";
 
 import {  usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 
 
@@ -23,6 +23,7 @@ const [category,setCategory]=useState("")
  const query =searchParams.get("category")
 
  useEffect(()=>{
+
    const params=new URLSearchParams(searchParams)
    if(category){
     params.set('category',category)
@@ -33,6 +34,7 @@ const [category,setCategory]=useState("")
  },[category])
 
     return (
+        <Suspense fallback={<div>Loading</div>}>
         <div className={styles.container} >
          <p>انتخاب دسته بندی<FaFilter /></p>
         
@@ -43,5 +45,7 @@ const [category,setCategory]=useState("")
             ))}
          </ul>
         </div>
+        </Suspense>
+        
     );
 }

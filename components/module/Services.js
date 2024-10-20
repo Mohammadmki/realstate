@@ -2,7 +2,7 @@
 
 import { services } from "@/constans/strings";
 import styles from "./services.module.css"
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -31,6 +31,8 @@ const [Service,setService]=useState("")
  
    const select=searchParams.get('service')
     return (
+      <Suspense fallback={<div>Loading</div>}>
+      
         <div className={styles.services}>
        <div>
         <label htmlFor="All" >همه</label>
@@ -43,5 +45,6 @@ const [Service,setService]=useState("")
             </div>
         ))}
       </div>
+      </Suspense>
     );
 }
