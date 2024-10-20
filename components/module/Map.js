@@ -21,10 +21,10 @@ export default function Map({ title, name, Data, setData ,loc}) {
         iconAnchor: [22, 94], 
         popupAnchor: [-3, -76], 
       });
-    const LocationMarker = () => {
-        if(!Data) return
+      const LocationMarker = () => {
         useMapEvents({
             click(e) {
+                if (!Data) return; 
                 setData((prevData) => ({
                     ...prevData,
                     location: {
@@ -33,11 +33,12 @@ export default function Map({ title, name, Data, setData ,loc}) {
                     }
                 }));
             }
-        
         });
-        return position === null ? null : (
+    
+     
+        return (
             <Marker position={position} icon={markerIcon} />
-          ); 
+        );
     };
 
     const ChangeMapCenter = ({ newPosition }) => {
@@ -50,8 +51,9 @@ export default function Map({ title, name, Data, setData ,loc}) {
        
         
 
-        if(!Data)return
+        
         useEffect(() => {
+            if(!Data)return
             if (newPosition) {
                 map.setView(newPosition, 13); 
             }
