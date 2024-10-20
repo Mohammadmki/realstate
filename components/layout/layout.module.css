@@ -3,6 +3,9 @@
     margin: auto;
 }
 
+.children {
+    min-height: 100vh;
+}
 .header {
     background-color: blue;
     display: flex;
@@ -13,7 +16,80 @@
     margin-bottom: 30px;
     height: 50px;
 }
+.pages {
+    display: flex;
+    align-items: flex-end;
+}
+.pages button {
+    color: #00f;
+    background-color: white;
+    padding: 0px 6px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width:60px;
+}
+.pages button svg {
+    width: fit-content;
+    height: fit-content;
+    font-size: 0.9rem;
+}
 
+.pages div{
+    position: relative;
+    
+
+}
+.pages ul{
+    position: absolute;
+    background-color: white;
+    box-shadow: #304ffe4a 0px 3px 15px;
+    border-radius: 5px;
+    top: 33px;
+    width: 100%;
+    list-style: none;
+    font-size: 0.8rem;
+    padding: 2px 4px;
+    right: 2px;
+    animation-name: show;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    opacity: 1;
+    display: block;
+}
+.pages ul[aria-disabled="true"]{
+
+    display: none;
+
+}
+@keyframes show {
+    from{
+        top: -4px;
+         opacity: 0;
+        }
+        to{
+            top: 33px;
+            opacity: 1;
+        }
+}
+.pages li {
+    cursor: pointer;
+    margin-bottom: 5px;
+    color: rgb(146, 146, 146);
+    transition: all 0.3s ease;
+}
+.pages li:hover{
+    color: black;
+}
+.pages button:hover {
+    color: white;
+    background-color: #00f;
+}
 .pages a {
     margin: 0px 8px;
  
@@ -117,8 +193,14 @@
     }
 }
 @media screen and (max-width:600px){
+    .children {
+        height: fit-content;
+    }
     .container {
         width: 100%;
+    }
+    .footer{
+        margin-top: 0px;
     }
     .desc {
      width: 250px;

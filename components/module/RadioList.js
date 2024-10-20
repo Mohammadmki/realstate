@@ -1,27 +1,28 @@
 import styles from "./RadioList.module.css";
 
-function RadioList({ profileData, setProfileData ,categorie}) {
-  const { category } = profileData;
+function RadioList({ profileData, setProfileData ,data,title,name}) {
+  
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setProfileData({ ...profileData, [name]: value });
+    
   };
       
   return (
     <div className={styles.container}>
-      <p>دسته بندی</p>
+      <p>{title}</p>
      <div className={styles.main}>
     
-     {categorie?.map((i)=>(
-      <div key={i._id} >
+     {data?.map((i,index)=>(
+      <div key={index} >
          <label htmlFor={i.slog}>{i.name}</label>
          <input
             type="radio"
-            name="category"
+            name={name}
             value={i.slog}
             id={i.slog}
-            checked={category === i.slog}
+            checked={profileData[name] === i.slog}
             onChange={changeHandler}
           />
       </div>

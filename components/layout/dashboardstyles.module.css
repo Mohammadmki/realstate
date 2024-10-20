@@ -8,10 +8,12 @@
     border-radius: 5px;
     height: fit-content;
 }
+
 .container{
     display: grid;
     grid-template-columns: auto 1fr ;
     column-gap: 30px;
+
 }
 .sidebar a {
     color: black;

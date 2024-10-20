@@ -21,16 +21,24 @@ export default async function Page({params:{profileId}}) {
         user=""
      }
    
-    if(!profile) return <h2 style={{
-        color:"red",
-        fontWeight:"400",
-        backgroundColor:"#fbbdbd",
-        borderRadius:"5px",
-        padding:"0px 10px"
-     }}>مشکلی پیش امده است</h2>
+    if(!profile) return <h2 className="error">مشکلی پیش امده است</h2>
    
      
     return (
           <DetailsPage user={JSON.parse(JSON.stringify(user))} data={JSON.parse(JSON.stringify(profile))} />
     );
+}
+export async function generateMetadata({params}) {
+    const {profileId}=params
+
+    await connectDB()
+   
+    const profile= await Profile.findOne({_id:profileId})
+console.log(profile)
+    return {
+        title:profile.title,
+        description:profile.description
+
+    }
+    
 }

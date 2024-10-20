@@ -1,3 +1,10 @@
+.container p{
+    font-style: 0.9rem;
+}
+.container input {
+    z-index: 9999;
+}
+
 @media screen and ( min-width:1070px){
     .container span {
         font-size: 1rem;
@@ -9,5 +16,10 @@
         width: 200px;
         height: 35px;
         font-size: 1rem;
+    }
+}
+@media screen and ( max-width:600px){
+    .container p {
+        font-size: 0.7rem;
     }
 }

@@ -80,7 +80,7 @@ to{
 }
 @media screen and (min-width:1070px) {
   .container p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   .container button{
     font-size: 1rem;
@@ -90,8 +90,14 @@ to{
     height: 35px;
   }
 }
-@media screen and (max-width:800px){
- .card {
+@media screen and (max-width:600px){
+ .container p {
+  font-size: 0.7rem;
+ }
+ .container button {
+  font-size: 0.7rem;
+ }
+  .card {
   margin: 7px 0px;
  }
   .card input{

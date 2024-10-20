@@ -1,8 +1,10 @@
-import { cities, services } from "../../constans/strings"
+
 import styles from "./Homepage.module.css"
 import CategoryCard from "../module/CategoryCard";
 import { FiCircle } from "react-icons/fi";
 import { FaCity } from "react-icons/fa6";
+import Services from "../module/Services";
+import { cities } from "@/constans/strings";
 
 export default async function Homepage() {
  
@@ -14,14 +16,7 @@ export default async function Homepage() {
       <div className={styles.banner}>
         <div className={styles.desc}>
           <h1>سامانه خرید و اجاره ملک</h1>
-          <ul className={styles.services}>
-            {services.map((i) => (
-              <li  key={i}>
-                <FiCircle />
-                <span>{i}</span>
-              </li>
-            ))}
-          </ul>
+           <Services />
         </div>
       </div>
       <div className={styles.categories}>
@@ -32,12 +27,9 @@ export default async function Homepage() {
       <div className={styles.city}>
         <h3>شهر های پر بازدید</h3>
         <ul>
-          {cities.map((i) => (
-            <li key={i}>
-              <FaCity />
-              <span>{i}</span>
-            </li>
-          ))}
+         {cities.map((city,index)=>(
+          <li key={index} >{city.name}</li>
+         ))}
         </ul>
       </div>
     </div>

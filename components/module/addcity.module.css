@@ -1,0 +1,65 @@
+.container {
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 30px;
+}
+.container button {
+    font-size: 0.9rem;
+    color: #304ffe;
+    border: 1px solid #304ffe;
+    padding: 0px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+}
+.city {
+    margin-top: 4px;
+      min-width: 100%;
+    list-style: none;
+    font-size: 0.8rem;
+     box-shadow: #304ffe4a 0px 3px 15px;
+     width: fit-content;
+     padding:2px 8px;
+     border-radius: 8px;
+     background-color: #fff;
+     animation-name: show;
+     animation-duration: 0.3s;
+     animation-timing-function: ease;
+     overflow-y: hidden;
+     height: fit-content;
+     opacity: 1;
+}
+.city[aria-disabled="false"]{
+   display: none;
+}
+@keyframes show {
+    from {height:0;
+   
+    }
+    to {height: fit-content;
+    }
+}
+.container li {
+    margin-bottom:5px;
+    cursor: pointer
+}
+@media screen and (max-width:600px) {
+    .container button{
+        font-size: 0.7rem;
+        padding: 0px 3px;
+        min-width: 80px;
+    }
+    .city {
+        font-size: 0.6rem;
+        margin-top:1px;
+    }
+}
+@media screen and (min-width:1070px) {
+    .container button{
+        font-size: 1.1rem;
+        width: 110px;
+    }
+    .city {
+        font-size: 0.9rem;
+    }
+}

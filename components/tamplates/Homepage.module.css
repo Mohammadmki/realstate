@@ -19,29 +19,11 @@
     margin-bottom: 20px;
   }
   
-  .desc ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .desc li {
-    display: flex;
-    align-items: center;
-    width: 70px;
-    margin: 10px;
-    background-color: #bbdefb;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-  }
   
   .desc span {
     font-weight: 400;
     margin-right: 5px;
     height: 20px;
-    
   }
   
   .categories {
@@ -89,6 +71,9 @@
     margin-right: 15px;
     font-weight: 400;
   }
+  .desc input{
+  margin-right: 5px;
+  }
   
 
  
@@ -127,7 +112,7 @@
   }
   @media screen and ( min-width:1070px) {
     .desc h1 {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
     }
     .desc li {
       width: 110px;

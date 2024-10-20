@@ -23,16 +23,27 @@ function TextInput({
   const changeHandler = (e) => {
     const { name, value } = e.target;
 
-    if (name === "price") {
-  
+    if (name === "price"||name=="KeyMoney") {
       const rawValue = value.replace(/,/g, ''); 
-      setData({ ...Data, [name]: sp(rawValue) });
+      setData({ ...Data, price: sp(rawValue) });
       return;
     }
-
+    if(name=='DownPayment'||name=="MonthlyRent"){
+      const rawValue = value.replace(/,/g, ''); 
+     setData((Data)=>({
+      ...Data,
+      price:{
+        ...Data.price,
+        [name]:sp(rawValue)
+      }
+     }))
+     console.log( name)
+      return;
+    }
+    
+ 
     setData({ ...Data, [name]: p2e(value) }); 
   };
-
 
   return (
     <div className={styles.container}>
@@ -45,12 +56,23 @@ function TextInput({
           onChange={changeHandler}
         />
       ) : (
+        <>
+        {name!=="DownPayment"&&name!=="MonthlyRent"?
         <input
-          type="text"
-          name={name}
-          value={Data[name]}
-          onChange={changeHandler}
-        />
+        type="text"
+        name={name}
+        value={name=="KeyMoney"?Data["price"]:Data[name] }
+        onChange={changeHandler}
+      />:
+     
+      <input
+      type="text"
+      name={name}
+      value={Data.price?.[name]}
+      onChange={changeHandler}
+    />
+      }
+        </>
       )}
     </div>
   );

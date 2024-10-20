@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./addpost.module.css"
 import TextInput from "../module/TextInput";
 import TextList from "../module/TextList";
@@ -8,6 +8,9 @@ import toast, { Toaster } from "react-hot-toast";
 import CustomDatePicker from "../module/DatePicker";
 import RadioList from "../module/RadioList";
 import { ThreeDots } from "react-loader-spinner";
+import { services } from "@/constans/strings";
+import Map from "../module/Map";
+import AddCity from "../module/AddCity";
 
 
 
@@ -21,7 +24,14 @@ export default function Addpost({data,categorie}) {
     const [profileData, setProfileData] = useState({
         title: "",
         description: "",
-        location: "",
+        location: {
+          city:{
+            name:"",
+            slog:""
+          },
+          position:[]
+
+        },
         phone: "",
         price: "",
         realState: "",
@@ -29,6 +39,7 @@ export default function Addpost({data,categorie}) {
         category: "",
         rules: [],
         amenities: [],
+        target:"",
       });
 
       
@@ -36,9 +47,30 @@ export default function Addpost({data,categorie}) {
      useEffect(()=>{
       if(data)setProfileData(data)
      },[])
-
     
-
+     useEffect(()=>{
+        if(profileData.target==""){
+          return
+        }
+        if(profileData.target=="rent"){
+          setProfileData((profileData)=>({
+            ...profileData,
+            price:{
+              DownPayment:"",
+              MonthlyRent:""
+            }
+          }))
+          return
+        }else{
+          setProfileData((profileData)=>({
+            ...profileData,
+            price:""
+          }))
+          return
+        }
+      },[profileData.target])
+    
+      
        const abbHandler= async (e)=>{
        
          
@@ -54,24 +86,29 @@ export default function Addpost({data,categorie}) {
            if(data.error){
                    toast.error(data.error)
            }else{
-            setProfileData({    title: "",
+            setProfileData({   
+              title: "",
               description: "",
-              location: "",
+              location: {
+                city:{
+                  name:"",
+                  slog:""
+                },
+                position:[]
+              },
               phone: "",
               price: "",
               realState: "",
               constructionDate: new Date(),
               category: "",
               rules: [],
-              amenities: [],})
-            toast.success(data.message)
-            console.log(data.data)
-             
- 
-            
+              amenities: [],
+              target:"",})
+            toast.success(data.message) 
            }
             
        }
+
        const editHandler=async()=>{
         setLoading(true)
         const res=await fetch("/api/profile",{
@@ -79,6 +116,7 @@ export default function Addpost({data,categorie}) {
           body:JSON.stringify(profileData),
           headers:{"Content-Type":"application/json"}
         })
+      
         const data=await res.json()
         setLoading(false)
         if(data.error){
@@ -107,20 +145,8 @@ export default function Addpost({data,categorie}) {
             textarea={true}
           />
           <TextInput
-            title="آدرس"
-            name="location"
-            Data={profileData}
-            setData={setProfileData}
-          />
-          <TextInput
             title="شماره تماس"
             name="phone"
-            Data={profileData}
-            setData={setProfileData}
-          />
-          <TextInput
-            title="قیمت(تومان)"
-            name="price"
             Data={profileData}
             setData={setProfileData}
           />
@@ -130,7 +156,45 @@ export default function Addpost({data,categorie}) {
             Data={profileData}
             setData={setProfileData}
           />
-          <RadioList categorie={categorie} profileData={profileData} setProfileData={setProfileData}/>
+          <RadioList data={categorie} profileData={profileData} name="category" title="دسته بندی" setProfileData={setProfileData}/>
+          <RadioList data={services } profileData={profileData} name="target" title="نوع آگهی" setProfileData={setProfileData} />
+         {profileData.target=="buy"&&  <TextInput
+            title="قیمت(تومان)"
+            name="price"
+            Data={profileData}
+            setData={setProfileData}
+          />}
+          {profileData.target=="rent"&&
+          <>
+            <TextInput
+            title="وعدیه(تومان)"
+            name="DownPayment"
+            Data={profileData}
+            setData={setProfileData}
+            
+          />
+          <TextInput
+          title=" ماهانه(تومان)"
+          name="MonthlyRent"
+          Data={profileData}
+          setData={setProfileData}
+        />
+        </>
+          }
+          {profileData.target=="mortgage"&& 
+           <TextInput
+          title=" وعدیه(تومان)"
+          name="KeyMoney"
+          Data={profileData}
+          setData={setProfileData}
+        />}
+          <AddCity Data={profileData} setData={setProfileData} name="city" />
+          <Map 
+          title="ادرس روی نقشه"
+          name="position"
+          Data={profileData}
+          setData={setProfileData}
+          />
           <TextList
             title="امکانات رفاهی"
             Data={profileData}
@@ -144,7 +208,7 @@ export default function Addpost({data,categorie}) {
             type="rules"
           />
           <CustomDatePicker profileData={profileData} setProfileData={setProfileData} />
-          {data? <button type="submit" onClick={editHandler} disabled={loading} className={styles.submit}>{loading?<ThreeDots color="white" />:"ویرایش اگهی"}</button> : <button onClick={abbHandler} type="submit" disabled={loading} className={styles.submit} > {loading?<ThreeDots color="white"/>:"ثبت اگهی"}</button>}
+          {data? <button type="submit" onClick={editHandler}  className={styles.submit}>{loading?<ThreeDots color="white" />:"ویرایش اگهی"}</button> : <button onClick={abbHandler} type="submit" className={styles.submit} > {loading?<ThreeDots color="white"/>:"ثبت اگهی"}</button>}
         </div>
       );
 }

@@ -1,0 +1,48 @@
+.services {
+  grid-column-start: 1;
+  grid-column-end: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.services div{
+    display: flex;
+    align-items: center;
+    width: 70px;
+    margin: 10px;
+    background-color: #bbdefb;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+.services input {
+    margin-right: 5px;
+    cursor: pointer;
+  
+}
+.services label{
+    cursor: pointer;
+}
+@media screen and (max-width:600px) {
+    .services label{
+        font-size: 0.8rem;
+    }
+    .services div{
+        padding: 3px 8px;
+        width: fit-content;
+    }
+    
+}
+@media screen and (min-width:600px){
+   .services div{
+    padding: 6px 13px;
+      width: 80px;
+   }
+    .services label{
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    .services input{
+        width: 70px;
+    }
+}

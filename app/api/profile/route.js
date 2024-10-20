@@ -30,10 +30,27 @@ export async function POST (req) {
             ,constructionDate
             ,category
             ,rules
+            ,target
             ,amenities}=body
-          
-            const RawPrice=orgnumber(price)
 
+          
+            let RawPrice=""
+            console.log(location)
+            if(target=="rent"){
+            if(!price.DownPayment||!price.MonthlyRent){
+                return  NextResponse.json({error:"لطفا مقادیر فرم را کامل کنید"},{status:400})
+            }
+                const Downpayment=orgnumber(price.DownPayment)
+                const mountly=orgnumber(price.MonthlyRent)
+                RawPrice={Downpayment,mountly}
+            } 
+            
+            if(target&&target!=="rent"){
+               if(!price) {
+                return NextResponse.json({error:"لطفا مقادیر فرم را کامل کنید"},{status:400})
+               }
+                RawPrice=orgnumber(price)
+            }
 
             const session= await getServerSession(req)
             if(!session) return NextResponse.json({error:"اول وارد حساب کاربری خود شوید"},{status:401})
@@ -42,20 +59,22 @@ export async function POST (req) {
              
                 if(!user) return NextResponse.json({error:"حساب کار بری یافت نشد لطفا ثبت نام کنید" },{status:404})
 
-                if(!title||!description||!location||!phone||!RawPrice||!constructionDate||!category){
+                if(!title||!description||!location.city.slog||!location.city.name||!location.position.length||!phone||!target||!constructionDate||!category){
                     return NextResponse.json({error:"لطفا مقادیر فرم را کامل کنید"},{status:400})
                 }
+            
                 const newprofile= await Profile.create({
                     title
                     ,description
                     ,location
                     ,phone
-                    ,price:+RawPrice
+                    ,price:RawPrice
                     ,realState
                     ,constructionDate
                     ,category
                     ,rules
                     ,amenities
+                    ,target
                     ,userId:new Types.ObjectId(user._id),
                 })
 
@@ -81,15 +100,35 @@ export async function POST (req) {
             ,constructionDate
             ,category
             ,rules
-            ,amenities}=body
+            ,amenities
+            ,target}=body
             const session= await getServerSession(req)
             if(!session) return NextResponse.json({error:"اول وارد حساب کاربری خود شوید"},{status:401})
                
+                
+            let RawPrice=""
+
+            if(target=="rent"){
+            if(!price.DownPayment||!price.MonthlyRent){
+                return  NextResponse.json({error:"لطفا مقادیر فرم را کامل کنید"},{status:400})
+            }
+                const Downpayment=orgnumber(price.DownPayment)
+                const mountly=orgnumber(price.MonthlyRent)
+                RawPrice={Downpayment,mountly}
+            } 
+            
+            if(target&&target!=="rent"){
+               if(!price) {
+                return NextResponse.json({error:"لطفا مقادیر فرم را کامل کنید"},{status:400})
+               }
+                RawPrice=orgnumber(price)
+            }
+
                 const user=await User.findOne({email:session.user.email})
              
                 if(!user) return NextResponse.json({error:"حساب کار بری یافت نشد لطفا ثبت نام کنید" },{status:404})
             
-                if(!_id||!title||!description||!location||!phone||!price||!constructionDate||!category){
+                if(!_id||!title||!description||!location.city.slog||!location.city.name||!location.position.length||!phone||!constructionDate||!category){
                         return NextResponse.json({error:"لطفا مقادیر فرم را کامل کنید"},{status:400})
                     }
                     
@@ -100,6 +139,8 @@ export async function POST (req) {
                  }
 
                     profile.title=title
+                    profile.target=target
+                    profile.price=RawPrice
                     profile.description=description
                     profile.location=location
                     profile.realState=realState

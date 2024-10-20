@@ -8,9 +8,14 @@ import Sharedbtn from "../module/Sharedbtn";
 import { icons } from "@/constans/icons";
 import { categories } from "@/constans/strings";
 import styles from "./DetailsPage.module.css"
+import Map from "../module/Map";
+import connectDB from "@/utils/connect";
+import Profile from "@/models/Profile";
+
 
 
 export default function DetailsPage({data,user}) {
+
 
     let saves
 
@@ -20,11 +25,13 @@ export default function DetailsPage({data,user}) {
         saves=""
     }
 
+
     return (
         <div className={styles.container} >
             <div className={styles.desc} >
               <h3>{data?.title}</h3>
-              <p>{data?.location}<HiOutlineLocationMarker /></p>
+              <p>{data?.location.city.name}<HiOutlineLocationMarker /></p>
+              <Map loc={data.location.position} />
               <h3>توضیحات</h3>
               <p>{data?.description}</p>
               <h3>امکانات</h3>
@@ -58,7 +65,19 @@ export default function DetailsPage({data,user}) {
                     {icons[data?.category]}
                     {categories[data?.category]}
                 </h5>
-                  <span>{sp(data?.price)}تومان</span>
+         {data.target=="rent"&&
+      <>
+      <span>وعدیه :   {sp(data.price.Downpayment)}تومان</span>
+      <span>اجاره :   {sp(data.price.mountly)}تومان</span>
+      </>
+      }
+      {data.target=="buy"&& <span>قیمت :   {sp(price)}</span>}
+      {data.target=="mortgage"&& 
+      <>
+      <span>وعدیه :   {sp(data.price)}</span>
+      <span>رهن کامل</span>
+      </>
+      }
                   <p><FaRegCalendarCheck/>{new Date(data?.constructionDate).toLocaleDateString("fa-IR")}</p>
             </div>
             </div>

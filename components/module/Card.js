@@ -7,16 +7,28 @@ import { icons } from "../../constans/icons";
 import styles from "./Card.module.css";
 import { sp } from "../../utils/replaceNumber";
 
-function Card({ data: { _id, category, title, location, price } }) {
+function Card({ data: { _id,target, category, title, location, price } }) {
   return (
     <div className={styles.container}>
       <div className={styles.icon}>{icons[category]}</div>
       <p className={styles.title}>{title}</p>
       <p className={styles.location}>
         <HiOutlineLocationMarker />
-        {location}
+           {location.city.name}
       </p>
-      <span>{sp(price)} تومان</span>
+      {target=="rent"&&
+      <>
+      <span>وعدیه :   {sp(price.Downpayment)}تومان</span>
+      <span>اجاره :   {sp(price.mountly)}تومان</span>
+      </>
+      }
+      {target=="buy"&& <span>قیمت :   {sp(price)}</span>}
+      {target=="mortgage"&& 
+      <>
+      <span>وعدیه :   {sp(price)}</span>
+      <span>رهن کامل</span>
+      </>
+      }
       <Link href={`/buy-residential/${_id}`}>
         مشاهده آگهی
         <BiLeftArrowAlt />

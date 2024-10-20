@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
         const res= await fetch(`/api/profile/publish/${data?._id}`,{method:"PATCH"})
          
         const resulat=await res.json()
-         setLoading(true)
+         setLoading(false)
 
          if(resulat.error) return toast.error(resulat.error)
  
@@ -45,8 +45,20 @@ import { useRouter } from "next/navigation";
             <h3>{data.title}</h3>
             <p>{data.description}</p>
             <div className={styles.properties}>
-              <span>{data.location}</span>
-              <span>{sp(data.price)}</span>
+              <span>{data.location.city.name}</span>
+              {data.target=="rent"&&
+      <>
+      <span>وعدیه :   {sp(data.price.Downpayment)}تومان</span>
+      <span>اجاره :   {sp(data.price.mountly)}تومان</span>
+      </>
+      }
+      {data.target=="buy"&& <span>قیمت :   {sp(data.price)}</span>}
+      {data.target=="mortgage"&& 
+      <>
+      <span>وعدیه :   {sp(data.price)}</span>
+      <span>رهن کامل</span>
+      </>
+      }
             </div>
             <button disabled={loading} onClick={publishHandler} >انتشار</button>
             <button disabled={loading} onClick={deleteHandler} >حذف</button>

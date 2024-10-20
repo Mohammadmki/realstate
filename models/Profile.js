@@ -10,8 +10,11 @@ const ProfileSchema=new Schema ({
         required:false,
         default:""
     },
+    target:{
+         type:String
+    },
     location:{
-        type:String,
+        type:Schema.Types.Mixed,
         required:true
     },
     phone:{
@@ -19,7 +22,7 @@ const ProfileSchema=new Schema ({
         required:true
     },
     price:{
-        type:String,
+        type: Schema.Types.Mixed,
         required:true
     },
     realState:{
