@@ -6,6 +6,7 @@ import styles from "./addcategorie.module.css"
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { MdOutlineAddHomeWork } from "react-icons/md";
+import Image from "next/image";
 
 
 
