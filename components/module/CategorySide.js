@@ -16,19 +16,19 @@ export default function CategorySide({data}) {
 const [category,setCategory]=useState("")
 
  const searchParams=useSearchParams()
- const pathName=usePathname()
  const router=useRouter()
  
 
  const query =searchParams.get("category")
 
  useEffect(()=>{
-
+    if(!category||category=="") return
    const params=new URLSearchParams(searchParams)
    if(category){
     params.set('category',category)
-   }else{
-    params.delete('category')
+   }
+   if(category=="All"){
+        params.delete('category')
    }
    router.push(`http://localhost:3000/buy-residential?${params.toString()}`)
  },[category])
@@ -39,7 +39,7 @@ const [category,setCategory]=useState("")
          <p>انتخاب دسته بندی<FaFilter /></p>
         
          <ul>
-            <li onClick={()=>setCategory("")} className={!query?styles.active:styles.onactive}  > <Link href="/buy-residential">همه</Link> </li>
+            <li onClick={()=>setCategory("All")} className={!query?styles.active:styles.onactive}  > <Link href="/buy-residential">همه</Link> </li>
             {data?.data.map((i)=>(
                 <li onClick={()=>setCategory(i.slog)} className={query==i.slog?styles.active:styles.onactive} key={i._id} >{i.name}</li>
             ))}

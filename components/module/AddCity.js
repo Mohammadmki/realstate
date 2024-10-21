@@ -5,7 +5,6 @@ import styles from "./addcity.module.css"
 import { useRef, useState } from "react";
 
 export default function AddCity({Data,setData,name}) {
- console.log(Data)
     const [show,setShow]=useState(false)
    
     const showitem=()=>{

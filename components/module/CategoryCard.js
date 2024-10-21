@@ -4,16 +4,31 @@
 import Link from "next/link";
 import styles from "./categoryCard.module.css";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 function CategoryCard({data}) {
+const [category,setcategory]=useState('')
 
-  return (
-   <Link href={`/buy-residential?category=${data.slog}`} >
-    <div className={styles.card}>
+const searchParams=useSearchParams()
+const router=useRouter()
+
+useEffect(()=>{
+  
+  const params=new URLSearchParams(searchParams)
+  if(category){
+   params.set('category',category)
+  }else{
+   params.delete('category')
+  }
+  router.push(`http://localhost:3000/buy-residential?${params.toString()}`)
+},[category])
+ 
+return (
+    <div onClick={()=>setcategory(data.slog)} className={styles.card}>
       <Image width={700} height={700} src={data.image[0]} alt="image"  />
       <p>{data.name}</p>
     </div>
-    </Link>
   );
 }
 

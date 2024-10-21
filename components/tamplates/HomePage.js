@@ -24,7 +24,7 @@ export default async function Homepage() {
       </div>
       <div className={styles.categories}>
        {category?.data.map((i)=>(
-        <CategoryCard key={i._id} data={i} />
+        <CategoryCard key={i._id} data={JSON.parse(JSON.stringify(i))} />
        ))}
       </div>
       <div className={styles.city}>

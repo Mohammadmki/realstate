@@ -29,7 +29,7 @@ export default async function page(ctx) {
 
     
     return (
-        <Byresiedential data={fainalData} Categorie={Categorie} />
+        <Byresiedential data={JSON.parse(JSON.stringify(fainalData))} Categorie={JSON.parse(JSON.stringify(Categorie))} />
        
     );
 }
