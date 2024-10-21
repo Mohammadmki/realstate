@@ -8,9 +8,12 @@ export default function Byresiedential({data,Categorie}) {
   
 
     return (
-        <div className={styles.container} >
+        <div className={styles.container} >  
              <Services />
-            <div className={styles.sidebar} ><CategorySide data={Categorie} /></div>
+            <div className={styles.sidebar} >
+                <CategorySide data={Categorie} />
+                
+            </div>
             <div className={styles.profiles}>
             {data&&data.length?( <> {
                data.map((profile)=>(

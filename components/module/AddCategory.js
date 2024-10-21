@@ -49,7 +49,7 @@ export default function AddCategory() {
        <div className={styles.image}>
         <p>افزودن عکس</p>
         <label htmlFor="image">{Categorie.image?
-      <img src={URL.createObjectURL(Categorie.image)} alt="" />  
+      <Image width={400} height={200}src={URL.createObjectURL(Categorie.image)} alt="image"  />  
       :<MdOutlineAddHomeWork /> } </label>
         <input onChange={()=>setCategorie({...Categorie,['image']:uploadFile.current.files[0]})}  ref={uploadFile} type="file" name="image" id="image" />
         </div>

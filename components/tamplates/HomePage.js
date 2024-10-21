@@ -6,6 +6,7 @@ import { FaCity } from "react-icons/fa6";
 import Services from "../module/Services";
 import { cities } from "@/constans/strings";
 
+
 export default async function Homepage() {
  
   const res= await fetch("https://realstate-nine-opal.vercel.app/api/categories",{next:{revalidate:24*60*60}})
@@ -16,7 +17,9 @@ export default async function Homepage() {
       <div className={styles.banner}>
         <div className={styles.desc}>
           <h1>سامانه خرید و اجاره ملک</h1>
+      
            <Services />
+  
         </div>
       </div>
       <div className={styles.categories}>
