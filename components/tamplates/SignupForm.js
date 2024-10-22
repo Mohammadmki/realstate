@@ -55,7 +55,7 @@ export default function SignUpForm() {
           redirect:false
         })
         setLoading(false)
-        router.push("/dashboard")
+        router.push("/")
         return
     }else if(data.status!==201){
       setLoading(false)

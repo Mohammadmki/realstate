@@ -10,7 +10,6 @@ import { useState } from "react";
 
 
 export default function SavedProfiles({data}) {
-    
     const [Loading,setLoading]=useState(false)
 
     const router =useRouter()
@@ -32,10 +31,13 @@ export default function SavedProfiles({data}) {
             router.refresh()
            }
     }
+   
 
     return (
         <div className={styles.container} >
             <Toaster />
+            {!data.savedpofiles.profiles||!data.savedpofiles.profiles.length?<h3 className="error" >شما اگهیی را ذخیره نکردید</h3>:
+            <>
             {data?.savedpofiles.profiles.map((profile)=>(
                 <div key={profile._id} className={styles.card} >
                 <Card data={profile} />
@@ -44,7 +46,8 @@ export default function SavedProfiles({data}) {
                 <button><LuShare2 />اشتراک گذاری</button>
                 </div>
                 </div>
-            ))}
+            ))}</>
+            }
         </div>
     );
 }

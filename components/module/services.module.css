@@ -22,6 +22,7 @@
 }
 .services label{
     cursor: pointer;
+    color:  #304ffe;
 }
 @media screen and (max-width:600px) {
     .services label{

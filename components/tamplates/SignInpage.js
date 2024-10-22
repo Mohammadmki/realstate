@@ -58,7 +58,7 @@ export default function SignInpage() {
      }else{
         setLoading(false)
         toast.success("ورد به حساب با موفقیت انجام شد")
-        router.push("/dashboard")
+        router.push("/")
      }
     }
     }
