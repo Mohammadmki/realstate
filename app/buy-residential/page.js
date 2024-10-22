@@ -6,10 +6,10 @@ export default async function page(ctx) {
      
         await connectDB()
          
-        const res= ''//await fetch("http://localhost:3000/api/profile",{cache:"no-store"})
-        const data=''//await res.json()
-        const categoryres=''// await fetch("http://localhost:3000/api/categories",{next:{revalidate:24*60*60}})
-       const Categorie=''//await categoryres.json()
+        const res= await fetch("https://realstate-steel.vercel.app/api/profile",{cache:"no-store"})
+        const data=await res.json()
+        const categoryres= await fetch("https://realstate-steel.vercel.app/api/categories",{next:{revalidate:24*60*60}})
+       const Categorie=await categoryres.json()
     if(!data||Categorie){
         return <h3 className="error" >مشکلی پیش آمده</h3>
     }

@@ -7,8 +7,8 @@ import VIsitedCity from "../module/VIsitedCity";
 
 export default async function Homepage() {
  
-  const res='' //await fetch("http://localhost:3000/api/categories",{next:{revalidate:1*24*60*60}})
-  const category=''//await res.json()
+  const res=await fetch("https://realstate-steel.vercel.app/api/categories",{next:{revalidate:1*24*60*60}})
+  const category=await res.json()
   
     return (
         <div>
