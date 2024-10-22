@@ -26,7 +26,7 @@ const [Service,setService]=useState("")
    }else {
     params.delete('service')
    } 
-   router.push(`http://localhost:3000/buy-residential?${params.toString()}`)
+   router.push(`https://realstate-steel.vercel.app/buy-residential?${params.toString()}`)
    },[Service])
  
    const select=searchParams.get('service')
