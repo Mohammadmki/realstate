@@ -34,43 +34,6 @@
     padding: 0px 20px;
   }
   
-  .city {
-    margin: 80px 0;
-  }
-  
-  .city h3 {
-    font-weight: 500;
-    font-size: 1.8rem;
-    text-align: center;
-    color: #304ffe;
-  }
-  
-  .city ul {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 35px;
-    list-style: none;
-  }
-  
-  .city li {
-    background-color: #bbdefb;
-    color: #304ffe;
-    font-size: 1.2rem;
-    width: 250px;
-    margin: 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 6px;
-    border-radius: 10px;
-  }
-  
-  .city span {
-    height: 30px;
-    margin-right: 15px;
-    font-weight: 400;
-  }
   .desc input{
   margin-right: 5px;
   }
@@ -88,24 +51,7 @@
       font-size: 0.8rem;
       width: 60px;
     }
-    .city {
-      margin: 50px 0px;
-    }
-    .city ul {
-      margin-top: 15px;
-    }
-    .city h3 {
-      font-size: 1.5rem;
-    }
-    .city li {
-      font-size: 1rem;
-      width: 110px;
-      align-items: flex-start;
-      height: 35px;
-    }
-    .city span {
-   margin-right: 6px;
-    } 
+ 
       
     
 
@@ -126,12 +72,5 @@
    .desc li svg {
     font-size: 1.2rem;
    }
-   .city h3 {
-    font-size: 2rem;
-    font-weight: 500;
-   }
-   .city li {
-    font-size: 1.7rem;
-    font-weight: 600;
-   }
+  
   }

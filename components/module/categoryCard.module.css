@@ -26,6 +26,8 @@
     color: #304ffe;
     text-align: center;
     margin: 10px 0 5px;
+     width: 100%;
+
   }
   @media screen and (min-width:1070px) {
     .card img {

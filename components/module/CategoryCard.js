@@ -15,6 +15,8 @@ const router=useRouter()
 
 useEffect(()=>{
   
+  if(!category&&category=="") return
+
   const params=new URLSearchParams(searchParams)
   if(category){
    params.set('category',category)
@@ -26,7 +28,7 @@ useEffect(()=>{
  
 return (
     <div onClick={()=>setcategory(data.slog)} className={styles.card}>
-      <Image width={700} height={700} src={data.image[0]} alt="image"  />
+      <Image width={500} height={500} src={data.image} alt="image"  />
       <p>{data.name}</p>
     </div>
   );

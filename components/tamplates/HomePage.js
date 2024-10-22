@@ -5,11 +5,12 @@ import { FiCircle } from "react-icons/fi";
 import { FaCity } from "react-icons/fa6";
 import Services from "../module/Services";
 import { cities } from "@/constans/strings";
+import VIsitedCity from "../module/VIsitedCity";
 
 
 export default async function Homepage() {
  
-  const res= await fetch("http://localhost:3000/api/categories",{next:{revalidate:24*60*60}})
+  const res= await fetch("http://localhost:3000/api/categories",{next:{revalidate:1*24*60*60}})
   const category=await res.json()
   
     return (
@@ -27,14 +28,7 @@ export default async function Homepage() {
         <CategoryCard key={i._id} data={JSON.parse(JSON.stringify(i))} />
        ))}
       </div>
-      <div className={styles.city}>
-        <h3>شهر های پر بازدید</h3>
-        <ul>
-         {cities.map((city,index)=>(
-          <li key={index} >{city.name}</li>
-         ))}
-        </ul>
-      </div>
+          <VIsitedCity />
     </div>
   );
 }

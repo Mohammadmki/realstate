@@ -38,10 +38,10 @@ export default function AddCategory() {
         toast.success(data.message)
         setCategorie({name:"",slog:"",image:""})
         router.refresh()
-
+         
       }
     }
-  console.log(Categorie)
+
     return (
        <div className={styles.container} >
         <Toaster />
