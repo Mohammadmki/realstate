@@ -36,7 +36,7 @@ const [Service,setService]=useState("")
         <div className={styles.services}>
        <div>
         <label htmlFor="All" >همه</label>
-        <input checked={Service=="All"} type="radio" onChange={()=>setService("All")} />
+        <input checked={Service=="All"} name="All" id="All" type="radio" onChange={()=>setService("All")} />
        </div>
         {services.map((i,index) => (
             <div key={index}>

@@ -24,7 +24,7 @@ export default function VIsitedCity() {
         params.set('city',city)
        }
 
-router.push(`http://localhost:3000/buy-residential?${params.toString()}`)
+router.push(`https://realstate-steel.vercel.app/buy-residential?${params.toString()}`)
 
     },[city])
 
